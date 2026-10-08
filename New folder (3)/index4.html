@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Winayak Kumar — Senior Copywriter. Campaigns, social media, ads, print and articles.">
+  <title>Winayak Kumar — Senior Copywriter</title>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
+    :root {
+      --bg-color: #fafafa;
+      --text-color: #111111;
+      --peach: #ffdac6;
+      --lavender: #dcd3ff;
+      --mint: #c6f0d4;
+      --border-color: #111111;
+      --accent-brown: #8b4d20;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    em, .serif {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+    }
+
+    a { text-decoration: none; color: inherit; cursor: pointer; }
+    ul { list-style: none; }
+
+    /* --- NAVBAR --- */
+    .site-header {
+      position: fixed;
+      top: 0; width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 5%;
+      background: var(--bg-color);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .logo span { color: #f26247; }
+
+    nav { display: flex; gap: 2rem; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; font-weight: 500;}
+    nav a { color: #666; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--text-color); }
+
+    /* --- PAGE ROUTING --- */
+    .page-view {
+      display: none;
+      min-height: 100vh;
+      padding: 8rem 5% 4rem;
+      animation: fadeIn 0.3s ease;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .page-view.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* --- HERO SECTION (HOME) --- */
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 4rem;
+      padding: 4rem 0;
+      position: relative;
+    }
+    .hero-copy {
+      flex: 1;
+      max-width: 600px;
+    }
+    .eyebrow {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      color: var(--text-color);
+    }
+    .hero-copy h1 {
+      font-size: clamp(3.5rem, 7vw, 6.5rem);
+      line-height: 1;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      letter-spacing: -2px;
+    }
+    .hero-text {
+      font-size: 1.3rem;
+      color: #444;
+      margin-bottom: 2.5rem;
+      max-width: 500px;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .btn-solid {
+      background: var(--text-color);
+      color: #fff;
+      padding: 1rem 1.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: transform 0.2s;
+    }
+    .btn-solid:hover { transform: translateY(-3px); }
+    .btn-link {
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    /* --- KEYBOARD GRAPHIC --- */
+    .keyboard-wrapper {
+      flex: 1;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1000px;
+      margin-top: 2rem;
+    }
+    .keyboard-shadow-bg {
+      position: absolute;
+      background: var(--peach);
+      border: 3px solid var(--text-color);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 550px;
+      height: 280px;
+      transform: rotate(-3deg) skewX(-2deg) translate(15px, 15px);
+      z-index: 1;
+    }
+    .keyboard-main {
+      position: relative;
+      background: #eaddd7;
+      border: 3px solid var(--text-color);
+      border-radius: 16px;
+      padding: 25px;
+      width: 100%;
+      max-width: 550px;
+      transform: rotate(-3deg) skewX(-2deg);
+      box-shadow: 12px 12px 0px var(--text-color);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .kb-row { display: flex; gap: 10px; justify-content: center;}
+    .kb-row.offset1 { padding-left: 20px; }
+    .kb-row.offset2 { padding-left: 40px; }
+    .kb-key {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 40px; height: 42px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem; font-weight: 700;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1), inset -1px -2px 3px rgba(0,0,0,0.05);
+    }
+    .kb-space {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 250px; height: 42px;
+      margin: 0 auto;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 2px;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1), inset -1px -2px 3px rgba(0,0,0,0.05);
+    }
+
+    /* --- ANIMATED PEN & INK GRAPHIC --- */
+    .pen-graphic {
+      position: absolute;
+      right: -10%;
+      top: -15%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 10;
+    }
+    .pen-text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--accent-brown);
+      font-size: 1.1rem;
+      transform: rotate(-5deg);
+      white-space: nowrap;
+    }
+    @keyframes inkPuddle {
+      0% { transform: scale(0.98); }
+      100% { transform: scale(1.03); }
+    }
+    @keyframes inkDrip {
+      0% { transform: translateY(0) scaleY(0.9); opacity: 0.7; }
+      50% { transform: translateY(3px) scaleY(1.1); opacity: 1; }
+      100% { transform: translateY(0) scaleY(0.9); opacity: 0.7; }
+    }
+    .ink-puddle {
+      animation: inkPuddle 2s infinite alternate ease-in-out;
+      transform-origin: center;
+    }
+    .ink-drip {
+      animation: inkDrip 1.5s infinite ease-in-out;
+      transform-origin: top center;
+    }
+
+    /* --- INNER PAGES HERO --- */
+    .inner-hero {
+      max-width: 800px;
+      margin-bottom: 4rem;
+    }
+    .inner-hero h1 {
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: 1;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      letter-spacing: -2px;
+    }
+    .inner-hero p {
+      font-size: 1.2rem;
+      color: #555;
+      max-width: 600px;
+    }
+
+    /* --- PORTFOLIO CARDS (NEO-BRUTALIST HOVER EFFECT) --- */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+    .card {
+      border: 1.5px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem;
+      transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      cursor: pointer;
+      min-height: 400px;
+      background: #fff;
+    }
+    /* NEO-BRUTALIST HOVER POP */
+    .card:hover { 
+      transform: translate(-6px, -6px); 
+      box-shadow: 8px 8px 0px var(--border-color);
+    }
+    
+    .card.peach { background: var(--peach); }
+    .card.lavender { background: var(--lavender); }
+    .card.mint { background: var(--mint); }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 1.5rem;
+      color: var(--text-color);
+    }
+    
+    .card-image-box {
+      border: 1px solid var(--border-color);
+      flex-grow: 1;
+      position: relative;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: transparent; 
+    }
+    .card-image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0; left: 0;
+      z-index: 2;
+    }
+    .card-placeholder-text {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      z-index: 1;
+      color: var(--text-color);
+    }
+    .quarter-circle {
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 80px; height: 80px;
+      border-top-left-radius: 80px;
+      border-top: 1px solid var(--border-color);
+      border-left: 1px solid var(--border-color);
+      z-index: 3; /* stays above image */
+    }
+
+    .card-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
+    }
+    .card-subtitle {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-color);
+    }
+
+    .section-divider {
+      margin-top: 4rem;
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 1rem;
+      color: var(--text-color);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 3rem 5%;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    @media(max-width: 900px) {
+      .hero { flex-direction: column; text-align: left; align-items: flex-start;}
+      .keyboard-wrapper { display: none; }
+      nav { display: none; }
+      footer { flex-direction: column; gap: 1rem; text-align: center;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <a class="logo" onclick="navigate('home')">WINAYAK<span>.</span></a>
+    <nav>
+      <a onclick="navigate('home')" id="nav-home" class="active">HOME</a>
+      <a onclick="navigate('ads')" id="nav-ads">ADS & PRINT</a>
+      <a onclick="navigate('social')" id="nav-social">SOCIAL MEDIA</a>
+      <a onclick="navigate('articles')" id="nav-articles">ARTICLES</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- PAGE 1: HOME -->
+    <section id="home" class="page-view active">
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">SENIOR COPYWRITER · HYDERABAD, INDIA</p>
+          <h1>I make words<br><em>do things.</em></h1>
+          <p class="hero-text">Ideas that stop the scroll, sell the story and occasionally make people say, “Damn, I wish I’d thought of that.”</p>
+          <div class="hero-actions">
+            <a class="btn-solid" onclick="navigate('ads')">SEE THE WORK ↓</a>
+            <a class="btn-link" href="mailto:winayak.n.kumar@gmail.com">Say hello ↗</a>
+          </div>
+        </div>
+
+        <div class="keyboard-wrapper" aria-label="Decorative typewriter keyboard">
+          <!-- Fountain Pen Graphic -->
+          <div class="pen-graphic">
+            <span class="pen-text">i use this too sometimes →</span>
+            <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path class="ink-puddle" d="M30,80 Q45,95 65,85 Q80,95 85,75 Q95,65 75,55 Q55,50 40,65 Z" fill="#111" />
+              <rect x="15" y="45" width="25" height="35" rx="4" fill="#333" transform="rotate(-30 27 62)" />
+              <rect x="20" y="35" width="15" height="10" fill="#555" transform="rotate(-30 27 62)" />
+              <path class="ink-drip" d="M45,70 Q50,85 60,80" stroke="#111" stroke-width="4" stroke-linecap="round" />
+              <path d="M75,20 L85,30 L60,70 L50,60 Z" fill="#241c32" />
+              <path d="M50,60 L40,75 L60,70 Z" fill="#ffdfa0" />
+              <path d="M40,75 L38,80 L45,74 Z" fill="#111" />
+            </svg>
+          </div>
+
+          <div class="keyboard-shadow-bg"></div>
+          <div class="keyboard-main">
+            <div class="kb-row">
+              <div class="kb-key">Q</div><div class="kb-key">W</div><div class="kb-key">E</div><div class="kb-key">R</div><div class="kb-key">T</div><div class="kb-key">Y</div><div class="kb-key">U</div><div class="kb-key">I</div><div class="kb-key">O</div><div class="kb-key">P</div>
+            </div>
+            <div class="kb-row offset1">
+              <div class="kb-key">A</div><div class="kb-key">S</div><div class="kb-key">D</div><div class="kb-key">F</div><div class="kb-key">G</div><div class="kb-key">H</div><div class="kb-key">J</div><div class="kb-key">K</div><div class="kb-key">L</div>
+            </div>
+            <div class="kb-row offset2">
+              <div class="kb-key">Z</div><div class="kb-key">X</div><div class="kb-key">C</div><div class="kb-key">V</div><div class="kb-key">B</div><div class="kb-key">N</div><div class="kb-key">M</div>
+            </div>
+            <div class="kb-space">COPY</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 2: ADS & PRINT -->
+    <section id="ads" class="page-view">
+      <div class="inner-hero">
+        <p class="eyebrow">01 / ADS & PRINT</p>
+        <h1>Make them<br><em>look twice.</em></h1>
+        <p>Campaign concepts, scripts and influencer collaborations. A few pieces of work that got people to stop, watch or click.</p>
+      </div>
+      <div id="ads-container"></div>
+      
+      <div style="text-align: center; margin: 60px 20px 0px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+        <p style="color: var(--accent-brown); font-family: 'Playfair Display', serif; font-style: italic; font-size: 1rem;">
+          *video ads are missing as ad library links expire
+        </p>
+      </div>
+    </section>
+
+    <!-- PAGE 3: SOCIAL MEDIA -->
+    <section id="social" class="page-view">
+      <div class="inner-hero">
+        <p class="eyebrow">02 / SOCIAL MEDIA</p>
+        <h1>Social, but<br><em>not soulless.</em></h1>
+        <p>Brand voices, captions, concepts and content across industries — from renewable energy and healthcare to crypto, education and fashion.</p>
+      </div>
+      <div id="social-videos-container" class="grid"></div>
+      
+      <div class="section-divider">Strategy for Social media accounts</div>
+      <div id="social-strategy-container" class="grid"></div>
+    </section>
+
+    <!-- PAGE 4: ARTICLES -->
+    <section id="articles" class="page-view">
+      <div class="inner-hero">
+        <p class="eyebrow">03 / ARTICLES</p>
+        <h1>When the<br><em>brief gets long.</em></h1>
+        <p>Long-form writing across technology, sustainability, crypto and emerging ideas.</p>
+      </div>
+      <div id="articles-container" class="grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div>WINAYAK KUMAR</div>
+    <div style="color: #666;">SENIOR COPYWRITER · HYDERABAD</div>
+    <a href="mailto:winayak.n.kumar@gmail.com" style="text-decoration: underline;">WINAYAK.N.KUMAR@GMAIL.COM ↗</a>
+  </footer>
+
+  <!-- =============================== -->
+  <!-- JAVASCRIPT: DATA & ROUTING LOGIC -->
+  <!-- =============================== -->
+  <script>
+    // ---------------------------------------------------------
+    // PORTFOLIO DATA (Ads reordered as requested)
+    // ---------------------------------------------------------
+    
+    const adsData = [
+      {
+        section: "Performance",
+        items: [
+          { title: "Tata TISCON", image: "work/ads/_Tata TISCON ads1 (1).jpg", placeholder: "PERFORMANCE AD" },
+          { title: "Tata TISCON 2", image: "work/ads/_Tata TISCON ads1 (2).jpg", placeholder: "PERFORMANCE AD" },
+          { title: "Tata TISCON 3", image: "work/ads/_Tata TISCON ads1.jpg", placeholder: "PERFORMANCE AD" },
+          { title: "10X Heal", image: "work/ads/10X Heal - Longevity Clinic.jpg", placeholder: "PERFORMANCE AD" },
+          { title: "10X Heal Ad 2", image: "work/ads/10X Heal ad 2.jpeg", placeholder: "PERFORMANCE AD" },
+          { title: "Abyom Space Tech", image: "work/ads/Abyom Space Tech Ad.jpeg", placeholder: "PERFORMANCE AD" },
+          { title: "BNI East Godavari", image: "work/ads/BNI EAST GODAVRI ad.jpg", placeholder: "PERFORMANCE AD" },
+          { title: "BNI Erode", image: "work/ads/BNI Erode.jpeg", placeholder: "PERFORMANCE AD" },
+          { title: "BNI Erode 2", image: "work/ads/BNI Erode 2.jpeg", placeholder: "PERFORMANCE AD" },
+          { title: "Dr Sanjai - Urooncologist", image: "work/ads/Dr Sanjai - Urooncologist ad.jpg", placeholder: "PERFORMANCE AD" },
+          { title: "Empellin EV", image: "work/ads/Empellin EV electric vehicle ad.jpeg", placeholder: "PERFORMANCE AD" },
+          { title: "ESCI Convention Centre", image: "work/ads/ESCI Gachibowli - Convention Centre.jpeg", placeholder: "PERFORMANCE AD" },
+          { title: "ESCI Staff College", image: "work/ads/ESCI Staff College Of India.jpeg", placeholder: "PERFORMANCE AD" },
+          { title: "ESCI PG Programs", image: "work/ads/ESCI staff college pgs ad.jpeg", placeholder: "PERFORMANCE AD" },
+          { title: "EVOKE Identity Coach", image: "work/ads/EVOKE Identity Coach ad.jpeg", placeholder: "PERFORMANCE AD" },
+          { title: "GetMy Info Medical", image: "work/ads/GetMy Info Medical Confrence.jpeg", placeholder: "PERFORMANCE AD" },
+          { title: "GetMyInfo Event", image: "work/ads/GetMyInfo Event Solutions.jpeg", placeholder: "PERFORMANCE AD" },
+          { title: "Global Exim Export", image: "work/ads/Global Exim Export webinar.jpeg", placeholder: "PERFORMANCE AD" },
+          { title: "Global Exim Export 2", image: "work/ads/Global Exim Export Webinar ad 2.jpeg", placeholder: "PERFORMANCE AD" },
+          { title: "Global Exim Import/Export", image: "work/ads/Global Exim Import Export Webinar.jpg", placeholder: "PERFORMANCE AD" },
+          { title: "Global Exim Webinar", image: "work/ads/Global Exim Webinar.jpeg", placeholder: "PERFORMANCE AD" },
+          { title: "Leadverse CRM", image: "work/ads/Leadverse CRM.jpeg", placeholder: "PERFORMANCE AD" }
+        ]
+      },
+      {
+        section: "Videos",
+        items: [
+          { title: "Grid AI - ad", url: "https://www.instagram.com/reel/DPvbh3zEm8l/", placeholder: "20M+ VIEWS" },
+          { title: "Sarthak Ahuja x Grid AI", url: "https://www.instagram.com/p/DdJZHKvzyI5/", placeholder: "VIDEO CAMPAIGN" }
+        ]
+      },
+      {
+        section: "OOH & Theatrical Campaigns",
+        items: [
+          { title: "Tata Digital OOH", url: "https://drive.google.com/file/d/1ISpwOkfl335JWTZldzeuqXkZFnQ2nnRt/view?usp=sharing", placeholder: "OOH CAMPAIGN" },
+          { title: "Secret Soldier - Creative", url: "https://drive.google.com/file/d/1QXO2kEpVmHsIYhnSze9_F7t3fHRk1q4S/view?usp=sharing", placeholder: "THEATRICAL" }
+        ]
+      },
+      {
+        section: "Influencer Collaborations",
+        items: [
+          { title: "Fleek x Hina Khan", url: "https://www.instagram.com/p/CdQcum8IbRU/", placeholder: "INFLUENCER WORK" },
+          { title: "We all have that forgetful friend!", url: "https://www.instagram.com/p/Cd3Oh9oFPn1/", placeholder: "INFLUENCER WORK" }
+        ]
+      }
+    ];
+
+    // Social Data split as requested
+    const socialVideos = [
+      { title: "25 million+ views | 1.1 M likes", url: "https://www.instagram.com/p/CdgFcLXjKL2/" },
+      { title: "People Person", url: "https://www.instagram.com/p/Ce3uCb3Dpjf/" },
+      { title: "10X Heal - What if managing diabetes wasn't the only option?", url: "https://www.instagram.com/p/DZcqP-fAi-D/" },
+      { title: "BNI Hyderabad x Raj Shamani", url: "https://www.instagram.com/p/DcVronICXh-/" },
+      { title: "FanzArt x IIID Showcase", url: "https://www.instagram.com/p/DZzy-zpDxZo/" },
+      { title: "Meme", url: "https://www.instagram.com/p/CfG-3p_DD0T/" }
+    ];
+
+    const socialStrategy = [
+      { title: "Samrat Group", url: "https://www.instagram.com/samratgroupofficial/" },
+      { title: "Dr Sanjai Uro Oncologist", url: "https://www.instagram.com/p/Dc-q27JhelU/" },
+      { title: "AJS HIREUP", url: "https://www.instagram.com/ajshireup/" },
+      { title: "Urban Flora", url: "https://www.instagram.com/urbanfloralandscapes/" },
+      { title: "Magna Code", url: "https://www.instagram.com/magna_centres/" },
+      { title: "Ecolastic Products", url: "https://www.instagram.com/ecolastic_products/" },
+      { title: "Global EXIM Institute", url: "https://www.instagram.com/globaleximinstitute/" },
+      { title: "Vishwa Samudra Eng", url: "https://www.instagram.com/vishwasamudraengineering/" },
+      { title: "BNI India", url: "https://www.instagram.com/bni_india/" },
+      { title: "Metaspace", url: "https://www.instagram.com/metaspace.metaverse/" },
+      { title: "GRID Club", url: "https://www.instagram.com/mygridclub/" },
+      { title: "BastionEx Infotech", url: "https://www.instagram.com/bastionex_infotech/" },
+      { title: "Payiza", url: "https://www.instagram.com/payizamoney/" },
+      { title: "Floxy Pay", url: "https://www.instagram.com/floxypayofficial/" },
+      { title: "Sheluxe", url: "https://www.instagram.com/sheluxelingerie/" },
+      { title: "SheReal", url: "https://www.instagram.com/sherealtherealshe/" },
+      { title: "Nandha Gokulam Life", url: "https://www.instagram.com/nandhagokulamlifeschool/" },
+      { title: "Nandha Gokulam CSF", url: "https://www.instagram.com/nandhagokulam_csf/" }
+    ];
+
+    const articlesData = [
+      { title: "Fuelled with future-ready blockchain, brace yourselves for MetaSpace!", url: "https://www.analyticsinsight.net/fuelled-with-future-ready-blockchain-brace-yourselves-for-metaspace/" },
+      { title: "Compostable items you didn't know existed", url: "https://ecolastic.in/blog/compostable-items-you-didnt-know-existed/" },
+      { title: "Technologies that transform the world — Metaverse", url: "https://www.linkedin.com/pulse/technologies-transform-world-metaspace-metaverse/" },
+      { title: "Eco-anxiety got you down?", url: "https://ecolastic.in/blog/eco-anxiety-got-you-down/" },
+      { title: "MetaSpace LinkedIn post", url: "https://www.linkedin.com/posts/metaspace-metaverse_metaspace-" },
+      { title: "A Beginner’s Guide to Trading Cryptocurrencies", url: "https://medium.com/@floxypay/a-beginners-guide-to-trading-cryptocurrencies-54202b3a1eb9" },
+      { title: "MetaSpace / VR Gaming", url: "https://www.linkedin.com/posts/metaspace-metaverse_metaspace-metaverse-vrgaming-activity-7048888712520187904-hHSP" },
+      { title: "3 Years After India Banned Single-Use Plastics", url: "https://ecolastic.in/blog/3-years-after-india-banned-single-use-plastics/" },
+      { title: "MetaSpace Founder / Moakram", url: "https://www.linkedin.com/posts/metaspace-metaverse_moakram-metaspace-founder-activity-7046824518337671168-TnPq" },
+      { title: "MetaSpace / Creator Economy", url: "https://www.linkedin.com/posts/metaspace-metaverse_metaspace-metaverse-creatorseconomy-activity-7069657130772873218-6SR8" },
+      { title: "Floxypay’s FXY Token Receives Warm Welcome on CoinGecko", url: "https://medium.com/@floxypay/floxypays-fxy-token-receives-warm-welcome-on-coingecko-a802fec6fe10" }
+    ];
+
+    const colors = ['peach', 'lavender', 'mint'];
+
+    // ---------------------------------------------------------
+    // PAGE NAVIGATION LOGIC
+    // ---------------------------------------------------------
+    function navigate(pageId) {
+      document.querySelectorAll('.page-view').forEach(page => page.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+      
+      document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+      const activeNav = document.getElementById('nav-' + pageId);
+      if(activeNav) activeNav.classList.add('active');
+
+      window.scrollTo(0, 0);
+    }
+
+    // ---------------------------------------------------------
+    // RENDER DATA TO HTML GRIDS
+    // ---------------------------------------------------------
+    function renderPortfolio() {
+      // 1. Render Ads
+      const adsContainer = document.getElementById('ads-container');
+      let colorIndex = 0;
+      
+      adsData.forEach(section => {
+        let html = `<div class="section-divider">${section.section}</div><div class="grid">`;
+        
+        section.items.forEach(item => {
+          let cardColor = colors[colorIndex % colors.length];
+          colorIndex++;
+          
+          let imageBoxHtml = '';
+          if (item.image) {
+            imageBoxHtml = `<img src="${item.image}" alt="${item.title}" onerror="this.style.display='none'">`;
+          } else {
+            imageBoxHtml = `<span class="card-placeholder-text">${item.placeholder || 'VIEW WORK'}</span>`;
+          }
+
+          html += `
+            <a href="${item.url || '#'}" target="_blank" class="card ${cardColor}">
+              <div class="card-top">
+                <span>CAMPAIGN / ${section.section.toUpperCase().split(' ')[0]}</span>
+                <span>↗</span>
+              </div>
+              <div class="card-image-box">
+                ${imageBoxHtml}
+                <div class="quarter-circle"></div>
+              </div>
+              <h3 class="card-title">${item.title}</h3>
+              <p class="card-subtitle">VIEW THE WORK</p>
+            </a>`;
+        });
+        html += `</div>`;
+        adsContainer.innerHTML += html;
+      });
+
+      // 2. Render Social Videos
+      const socialVideosContainer = document.getElementById('social-videos-container');
+      socialVideos.forEach((item, index) => {
+        let cardColor = colors[index % colors.length];
+        socialVideosContainer.innerHTML += `
+          <a href="${item.url}" target="_blank" class="card ${cardColor}">
+            <div class="card-top">
+              <span>SOCIAL / VIDEO</span>
+              <span>↗</span>
+            </div>
+            <div class="card-image-box">
+              <span class="card-placeholder-text">INSTAGRAM VIDEO</span>
+              <div class="quarter-circle"></div>
+            </div>
+            <h3 class="card-title">${item.title}</h3>
+            <p class="card-subtitle">WATCH VIDEO</p>
+          </a>`;
+      });
+
+      // 3. Render Social Strategy
+      const socialStrategyContainer = document.getElementById('social-strategy-container');
+      socialStrategy.forEach((item, index) => {
+        // Continue alternating colors
+        let cardColor = colors[(index + socialVideos.length) % colors.length];
+        socialStrategyContainer.innerHTML += `
+          <a href="${item.url}" target="_blank" class="card ${cardColor}">
+            <div class="card-top">
+              <span>SOCIAL / STRATEGY</span>
+              <span>↗</span>
+            </div>
+            <div class="card-image-box">
+              <span class="card-placeholder-text">BRAND ACCOUNT</span>
+              <div class="quarter-circle"></div>
+            </div>
+            <h3 class="card-title">${item.title}</h3>
+            <p class="card-subtitle">VIEW THE WORK</p>
+          </a>`;
+      });
+
+      // 4. Render Articles
+      const articlesContainer = document.getElementById('articles-container');
+      articlesData.forEach((item, index) => {
+        let cardColor = colors[index % colors.length];
+        articlesContainer.innerHTML += `
+          <a href="${item.url}" target="_blank" class="card ${cardColor}" style="min-height: 250px;">
+            <div class="card-top">
+              <span>EDITORIAL / ARTICLE</span>
+              <span>↗</span>
+            </div>
+            <h3 class="card-title" style="font-size: 1.5rem; margin-top: auto; padding-top:2rem;">${item.title}</h3>
+          </a>`;
+      });
+    }
+
+    // Initialize
+    window.onload = renderPortfolio;
+  </script>
+</body>
+</html>
